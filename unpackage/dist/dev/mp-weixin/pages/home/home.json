@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "home-banner": "./cpns/home-banner"
+  }
 }
