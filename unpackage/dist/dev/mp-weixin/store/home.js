@@ -5,7 +5,7 @@ const useHomeStore = common_vendor.defineStore("homeStore", {
   state: () => {
     return {
       banners: [],
-      recommonds: []
+      recommends: []
     };
   },
   actions: {
@@ -13,7 +13,7 @@ const useHomeStore = common_vendor.defineStore("homeStore", {
     async fetchHomeMultidata() {
       const res = await service_home.getHomeMultidata();
       this.banners = res.data.banner.list || [];
-      this.recommonds = res.data.recommond.list || [];
+      this.recommends = res.data.recommend.list || [];
     }
   }
 });

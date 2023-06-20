@@ -8,13 +8,18 @@ const _sfc_main = {
       default: () => []
     }
   },
-  setup(__props) {
+  emits: ["bannerItemClick"],
+  setup(__props, { emit }) {
+    function handleItemClick(item) {
+      emit("bannerItemClick", item.link);
+    }
     return (_ctx, _cache) => {
       return {
         a: common_vendor.f(__props.banners, (item, k0, i0) => {
           return {
             a: item.image,
-            b: item
+            b: common_vendor.o(($event) => handleItemClick(item), item),
+            c: item
           };
         })
       };

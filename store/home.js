@@ -5,7 +5,7 @@ export const useHomeStore = defineStore('homeStore', {
 	state: () => {
 		return {
 			banners: [],
-			recommonds: []
+			recommends: []
 		}
 	},
 	actions: {
@@ -13,7 +13,7 @@ export const useHomeStore = defineStore('homeStore', {
 		async fetchHomeMultidata() {
 			const res = await getHomeMultidata()
 			this.banners = res.data.banner.list || []
-			// this.recommonds = res.data.recommond.list || []
+			this.recommends = res.data.recommend.list || []
 		}
 	}
 })

@@ -7,6 +7,8 @@ if (!Math) {
   "./pages/cart/cart.js";
   "./pages/profile/profile.js";
   "./pages/detail/detail.js";
+  "./pages/webview/webview.js";
+  "./components/tab-control/tab-control.js";
 }
 const _sfc_main = {};
 const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "D:/WorkSpace/Nalamal/code/uniapp_mall/App.vue"]]);

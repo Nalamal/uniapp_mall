@@ -3,22 +3,45 @@ const common_vendor = require("../../common/vendor.js");
 const store_home = require("../../store/home.js");
 require("../../service/home.js");
 require("../../service/index.js");
+if (!Array) {
+  const _easycom_tab_control2 = common_vendor.resolveComponent("tab-control");
+  _easycom_tab_control2();
+}
+const _easycom_tab_control = () => "../../components/tab-control/tab-control2.js";
 if (!Math) {
-  HomeBanner();
+  (HomeBanner + HomeRecommend + HomePopular + _easycom_tab_control)();
 }
 const HomeBanner = () => "./cpns/home-banner.js";
+const HomeRecommend = () => "./cpns/home-recommend.js";
+const HomePopular = () => "./cpns/home-popular.js";
 const _sfc_main = {
   __name: "home",
   setup(__props) {
     const homeStore = store_home.useHomeStore();
-    const { banners, recommonds } = common_vendor.storeToRefs(homeStore);
+    const { banners, recommends } = common_vendor.storeToRefs(homeStore);
     common_vendor.onLoad(() => {
       homeStore.fetchHomeMultidata();
     });
+    function handleBannerItemClick(link) {
+      common_vendor.index.navigateTo({
+        url: "/pages/webview/webview?link=" + link
+      });
+    }
+    function handleTabItemClick(index) {
+      console.log("handleTabItemClick=>", index);
+    }
     return (_ctx, _cache) => {
       return {
-        a: common_vendor.p({
+        a: common_vendor.o(handleBannerItemClick),
+        b: common_vendor.p({
           banners: common_vendor.unref(banners)
+        }),
+        c: common_vendor.p({
+          recommends: common_vendor.unref(recommends)
+        }),
+        d: common_vendor.o(handleTabItemClick),
+        e: common_vendor.p({
+          titles: ["流行", "新款", "精选"]
         })
       };
     };
