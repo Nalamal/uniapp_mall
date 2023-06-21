@@ -4,9 +4,9 @@ export function getHomeMultidata() {
 	return MyRequest.get("/home/multidata")
 }
 
-// export function getHomeData(type, page) {
-// 	return MyRequest.get("/home/data", {
-// 		type,
-// 		page
-// 	})
-// }
+export function getHomeData(type, page) {
+	return MyRequest.get('/home/data', {
+		type,
+		page
+	})
+}

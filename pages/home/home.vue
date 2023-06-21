@@ -24,6 +24,8 @@
 	onLoad(() => {
 		// 触发一个异步的action（获取首页轮播数据）
 		homeStore.fetchHomeMultidata()
+		// 获取流行第一页的商品
+		homeStore.fetchHomeData('new', 1)
 	})
 
 	// 轮播图的点击事件

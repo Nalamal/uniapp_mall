@@ -14,6 +14,10 @@ const useHomeStore = common_vendor.defineStore("homeStore", {
       const res = await service_home.getHomeMultidata();
       this.banners = res.data.banner.list || [];
       this.recommends = res.data.recommend.list || [];
+    },
+    async fetchHomeData() {
+      const res = await service_home.getHomeData();
+      console.log("res=>", res);
     }
   }
 });
